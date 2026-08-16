@@ -3,16 +3,15 @@ import time
 
 class Dice:
     def roll(self):
-        print("Rolling the dice...")
-        time.sleep(1)
+        print("Rolling the dice...\\n")
         
         die1 = random.randint(1, 6)
         die2 = random.randint(1, 6)
         total = die1 + die2
         
+        time.sleep(0.5)
         print(f"You rolled a {die1} and a {die2}. Total sum is: {total}")
         return total
-
 
 class Game:
     def __init__(self):
@@ -20,7 +19,23 @@ class Game:
 
     def play(self):
         time.sleep(0.8)
-        print("--- WELCOME TO CRAPS ---")
+        print("""
+
+        !!! WELCOME TO CRAPS!!!
+
+        --- GAME RULES ---
+
+        1. FIRST ROLL:
+            * Roll 7 or 11:  YOU WIN immediately!
+            * Roll 2, 3, or 12:  CASINO WINS (Craps!)
+            * Roll 4, 5, 6, 8, 9, or 10:  Sets your GOAL number.
+
+        2. SUBSEQUENT ROLLS:
+            * Keep rolling to hit your GOAL number again to WIN!
+            * If you roll a 7 before hitting your goal, YOU LOSE!
+
+        """)
+        time.sleep(1)
         input("Press Enter to make your first roll! ")
         
         first_roll = self.dice.roll()
